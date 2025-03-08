@@ -67,7 +67,7 @@
 
 }
 
-  const url = "https://special-rotary-phone-74xgqj4x9xq3rrpx-5173.app.github.dev";
+  const url = "https://sturdy-space-goldfish-7467w9j4pg93xj6q-5173.app.github.dev";
 
   app.url = url;
 
@@ -95,10 +95,13 @@
   onMount(async () => {
 
     // get the active form
-
+    
     const activeForm = await getActiveForm();
     app.uid = activeForm.uid;
     app.url = url;
+
+    // console.log(activeForm);
+    // console.log(activeForm.uid);
 
     let pages: {
       footer_buttons: string,
@@ -109,7 +112,7 @@
       section_help_texts: string,
       section_names: string,
       uid: number
-    }[] = await request(`${url}/api/page?form_id=${activeForm}`, "GET");
+    }[] = await request(`${url}/api/page?form_id=${activeForm.uid}`, "GET");
 
     for(let page of pages) {
 

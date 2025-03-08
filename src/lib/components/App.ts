@@ -75,23 +75,23 @@ export default class App {
 
         //save data to localstorage
 
-        localStorage.setItem('form'+localStorage.length, JSON.stringify(data));
+        // localStorage.setItem('form'+localStorage.length, JSON.stringify(data));
 
-        const response = await fetch(`${this.url}/api/form/${this.uid}`, {
-            method: "POST",
-            mode: "no-cors",
-            body: JSON.stringify(data),
-            headers: {
-              "Content-Type": "application/json",
-            }
-        }).then((res) => {
+        // const response = await fetch(`${this.url}/api/form/${this.uid}`, {
+        //     method: "POST",
+        //     mode: "no-cors",
+        //     body: JSON.stringify(data),
+        //     headers: {
+        //       "Content-Type": "application/json",
+        //     }
+        // }).then((res) => {
 
-            console.log("Form submitted successfully");
-            console.log(res)//this doesn't work or smth idek its just not returnign the right thing but whatever it doesnt even matter. 
+        //     console.log("Form submitted successfully");
+        //     console.log(res)//this doesn't work or smth idek its just not returnign the right thing but whatever it doesnt even matter. 
 
-        }, (error) => {
-            console.error("Error submittdfing form", error);
-        });
+        // }, (error) => {
+        //     console.error("Error submittdfing form", error);
+        // });
 
         let localName = 'match'+localStorage.length;
         localStorage.setItem(localName, JSON.stringify(data));
@@ -121,6 +121,7 @@ export default class App {
                     // console.log(localStorage.length)
                     
                     localStorage.removeItem(matchName);
+                    console.log("Successful upload! Removed from local storage");
                     // console.log(localStorage.length)
 
                 }, (error) => {
